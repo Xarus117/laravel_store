@@ -1,7 +1,6 @@
 <?php
 
 namespace App\Http\Controllers;
-
 use Illuminate\Http\Request;
 use App\Models\Product;
 
@@ -14,7 +13,8 @@ class ProductController extends Controller
      */
     public function index()
     {
-        //
+        $products = Product::orderBy('id','desc')->paginate(5);
+        return view('products.index', compact('products'));
     }
 
     /**
@@ -24,7 +24,7 @@ class ProductController extends Controller
      */
     public function create()
     {
-        //
+        return view('products.create');
     }
 
     /**
@@ -35,7 +35,17 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'name' => 'required',
+            'description' => 'required',
+            'category_id' => 'required',
+            'price' => 'required',
+            'stock' => 'required'
+        ]);
+        
+        Product::create($request->post());
+
+        return redirect()->route('products.index')->with('éxito','El producto se ha creado con éxito.');
     }
 
     /**
@@ -44,9 +54,9 @@ class ProductController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Product $product)
     {
-        //
+        return view('products.show',compact('product'));
     }
 
     /**
@@ -55,9 +65,9 @@ class ProductController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Product $product)
     {
-        //
+        return view('products.edit',compact('product'));
     }
 
     /**
@@ -67,9 +77,19 @@ class ProductController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Product $product)
     {
-        //
+        $request->validate([
+            'name' => 'required',
+            'description' => 'required',
+            'category_id' => 'required',
+            'price' => 'required',
+            'stock' => 'required'
+        ]);
+
+        $product->fill($request->post())->save();
+
+        return redirect()->route('products.index')->with('éxito','Producto actualizado con éxito');
     }
 
     /**
@@ -78,8 +98,9 @@ class ProductController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Product $product)
     {
-        //
+        $product->delete();
+        return redirect()->route('products.index')->with('éxito','Producto eliminado con éxito');
     }
 }

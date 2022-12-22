@@ -10,7 +10,7 @@ route::post('register', [UserController::class, 'register']);
 route::post('login', [UserController::class, 'login']);
 
 Route::resource('products', ProductController::class);
-Route::resource('categories', 'CategoriesController');
+Route::resource('categories', CategoryController::class);
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
