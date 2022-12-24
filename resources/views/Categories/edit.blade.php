@@ -43,7 +43,7 @@
                     <div class="form-group">
                         <strong>Category Description:</strong>
                         <input type="text" name="description" class="form-control" placeholder="Category Description"
-                            value="{{ $category->email }}">
+                            value="{{ $category->description }}">
                         {{--                 @error('description')
                         <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
                         @enderror --}}
