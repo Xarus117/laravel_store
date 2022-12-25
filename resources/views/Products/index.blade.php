@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Categorías</title>
+    <title>Productos</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
 
@@ -12,10 +12,10 @@
         <div class="row">
             <div class="col-lg-12 margin-tb">
                 <div class="pull-left">
-                    <h2>Categorías</h2>
+                    <h2>Productos</h2>
                 </div>
                 <div class="pull-right mb-2">
-                    <a class="btn btn-success" href="{{ route('categories.create') }}"> Crear Categoría</a>
+                    <a class="btn btn-success" href="{{ route('products.create') }}"> Crear Producto</a>
                 </div>
             </div>
         </div>
@@ -28,20 +28,26 @@
             <thead>
                 <tr>
                     <th>ID</th>
-                    <th>Nombre Categoría</th>
-                    <th>Descripción Categoría</th>
+                    <th>Nombre Producto</th>
+                    <th>Descripción Producto</th>
+                    <th>ID Categoría</th>
+                    <th>Precio</th>
+                    <th>Stock</th>
                     <th width="280px">Acciones</th>
                 </tr>
             </thead>
             <tbody>
-                @foreach ($categories as $category)
+                @foreach ($products as $product)
                 <tr>
-                    <td>{{ $category->id }}</td>
-                    <td>{{ $category->name }}</td>
-                    <td>{{ $category->description }}</td>
+                    <td>{{ $product->id }}</td>
+                    <td>{{ $product->name }}</td>
+                    <td>{{ $product->description }}</td>
+                    <td>{{ $product->category_id }}</td>
+                    <td>{{ $product->price }}</td>
+                    <td>{{ $product->stock }}</td>
                     <td>
-                        <form action="{{ route('categories.destroy',$category->id) }}" method="Post">
-                            <a class="btn btn-primary" href="{{ route('categories.edit',$category->id) }}">Editar</a>
+                        <form action="{{ route('products.destroy',$product->id) }}" method="Post">
+                            <a class="btn btn-primary" href="{{ route('products.edit',$product->id) }}">Editar</a>
                             @csrf
                             @method('DELETE')
                             <button type="submit" class="btn btn-danger">Borrar</button>
@@ -51,7 +57,7 @@
                 @endforeach
             </tbody>
         </table>
-        {!! $categories->links() !!}
+        {!! $products->links() !!}
     </div>
 </body>
 

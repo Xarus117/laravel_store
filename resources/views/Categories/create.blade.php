@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Add Company Form - Laravel 9 CRUD</title>
+    <title>Crear Categoría</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
 
@@ -12,10 +12,10 @@
         <div class="row">
             <div class="col-lg-12 margin-tb">
                 <div class="pull-left mb-2">
-                    <h2>Add Category</h2>
+                    <h2>Añadir Categoría</h2>
                 </div>
                 <div class="pull-right">
-                    <a class="btn btn-primary" href="{{ route('categories.index') }}"> Back</a>
+                    <a class="btn btn-primary" href="{{ route('categories.index') }}"> Volver</a>
                 </div>
             </div>
         </div>
@@ -29,7 +29,7 @@
             <div class="row">
                 <div class="col-xs-12 col-sm-12 col-md-12">
                     <div class="form-group">
-                        <strong>Category Name:</strong>
+                        <strong>Nombre Categoría:</strong>
                         <input type="text" name="name" class="form-control" placeholder="Category Name">
              {{--            @error('name')
                             <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
@@ -38,7 +38,7 @@
                 </div>
                 <div class="col-xs-12 col-sm-12 col-md-12">
                     <div class="form-group">
-                        <strong>Company Description:</strong>
+                        <strong>Descripción Categoría:</strong>
                         <input type="text" name="description" class="form-control"
                             placeholder="Category description">
                    {{--      @error('description')
@@ -46,7 +46,7 @@
                         @enderror --}}
                     </div>
                 </div>
-                <button type="submit" class="btn btn-primary ml-3">Submit</button>
+                <button type="submit" class="btn btn-primary ml-3">Guardar</button>
             </div>
         </form>
     </div>

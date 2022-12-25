@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Edit Category</title>
+    <title>Editar Categoría</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
 
@@ -12,11 +12,11 @@
         <div class="row">
             <div class="col-lg-12 margin-tb">
                 <div class="pull-left">
-                    <h2>Edit Category</h2>
+                    <h2>Editar Categoría</h2>
                 </div>
                 <div class="pull-right">
                     <a class="btn btn-primary" href="{{ route('categories.index') }}" enctype="multipart/form-data">
-                        Back</a>
+                        Volver</a>
                 </div>
             </div>
         </div>
@@ -31,7 +31,7 @@
             <div class="row">
                 <div class="col-xs-12 col-sm-12 col-md-12">
                     <div class="form-group">
-                        <strong>Category Name:</strong>
+                        <strong>Nombre Categoría:</strong>
                         <input type="text" name="name" value="{{ $category->name }}" class="form-control"
                             placeholder="Category name">
                         {{--             @error('name')
@@ -41,7 +41,7 @@
                 </div>
                 <div class="col-xs-12 col-sm-12 col-md-12">
                     <div class="form-group">
-                        <strong>Category Description:</strong>
+                        <strong>Descripción Categoría:</strong>
                         <input type="text" name="description" class="form-control" placeholder="Category Description"
                             value="{{ $category->description }}">
                         {{--                 @error('description')
@@ -49,7 +49,7 @@
                         @enderror --}}
                     </div>
                 </div>
-                <button type="submit" class="btn btn-primary ml-3">Submit</button>
+                <button type="submit" class="btn btn-primary ml-3">Guardar</button>
             </div>
         </form>
     </div>
