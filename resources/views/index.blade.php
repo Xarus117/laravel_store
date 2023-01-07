@@ -9,6 +9,7 @@
 <body>
     <a class="btn btn-success" href="{{ route('categories.index') }}"> Create Category</a>
     <a class="btn btn-success" href="{{ route('products.index') }}"> Create Product</a>
+    <a class="btn btn-success" href="{{ route('users.index') }}"> Create User</a>
 
 </body>
 </html>

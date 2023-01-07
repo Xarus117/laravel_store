@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Crear Producto</title>
+    <title>Crear Usuario</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
 
@@ -12,10 +12,10 @@
         <div class="row">
             <div class="col-lg-12 margin-tb">
                 <div class="pull-left mb-2">
-                    <h2>Añadir Producto</h2>
+                    <h2>Añadir Usuario</h2>
                 </div>
                 <div class="pull-right">
-                    <a class="btn btn-primary" href="{{ route('products.index') }}"> Volver</a>
+                    <a class="btn btn-primary" href="{{ route('users.index') }}"> Volver</a>
                 </div>
             </div>
         </div>
@@ -24,12 +24,12 @@
                 {{ session('status') }}
             </div>
         @endif
-        <form action="{{ route('products.store') }}" method="POST" enctype="multipart/form-data">
+        <form action="{{ route('users.store') }}" method="POST" enctype="multipart/form-data">
             @csrf
             <div class="row">
                 <div class="col-xs-12 col-sm-12 col-md-12">
                     <div class="form-group">
-                        <strong>Nombre Producto:</strong>
+                        <strong>Nombre Usuario:</strong>
                         <input type="text" name="name" class="form-control" placeholder="Nombre Producto">
                         {{--            @error('name')
                             <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
@@ -38,8 +38,8 @@
                 </div>
                 <div class="col-xs-12 col-sm-12 col-md-12">
                     <div class="form-group">
-                        <strong>Descripción Producto:</strong>
-                        <input type="text" name="description" class="form-control"
+                        <strong>Email Usuario:</strong>
+                        <input type="email" name="email" class="form-control"
                             placeholder="Descripción Producto">
                         {{--      @error('description')
                             <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
@@ -48,32 +48,14 @@
                 </div>
                 <div class="col-xs-12 col-sm-12 col-md-12">
                     <div class="form-group">
-                        <strong>ID Categoría:</strong>
-                        <input type="text" name="category_id" class="form-control" placeholder="ID Categoría">
+                        <strong>Contraseña:</strong>
+                        <input type="password" name="password" class="form-control" placeholder="Precio Producto">
                         {{--      @error('description')
                             <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
                         @enderror --}}
                     </div>
                 </div>
-                <div class="col-xs-12 col-sm-12 col-md-12">
-                    <div class="form-group">
-                        <strong>Precio Producto:</strong>
-                        <input type="text" name="price" class="form-control" placeholder="Precio Producto">
-                        {{--      @error('description')
-                            <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
-                        @enderror --}}
-                    </div>
-                </div>
-                <div class="col-xs-12 col-sm-12 col-md-12">
-                    <div class="form-group">
-                        <strong>Stock Producto:</strong>
-                        <input type="text" name="stock" class="form-control" placeholder="Stock Producto">
-                        {{--      @error('description')
-                            <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
-                        @enderror --}}
-                    </div>
-                </div>
-                <button type="submit" class="btn btn-primary ml-3">Guardar</button>
+                <button type="submit" class="btn btn-primary ml-3">Registrar</button>
             </div>
         </form>
     </div>
